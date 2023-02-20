@@ -1,0 +1,27 @@
+
+
+{% extends 'index.html' %}
+
+{% block title %} third page {% endblock %}
+
+{% block content %} 
+<h2> this is my third page </h2>
+{{var}} 
+<p> ! My Name is  {{name}} </p>
+<h2> {{msg}} </h2>
+<h2>{{myfruits}}</h2>
+
+<ul>
+    {% for all_fruits in myfruits %}
+        <li> {{all_fruits}}</li>
+    {% endfor %}
+</ul>
+
+<h3> Here we are going to perforing if else and elif </h3>
+{% if ans %}
+ <h2> {{num1 }} is greater than {{num2}} </h2>
+{% else  %}
+<h2> {{num1}} is smaller than {{num2}} </h2>
+{% endif %}
+
+{% endblock%}

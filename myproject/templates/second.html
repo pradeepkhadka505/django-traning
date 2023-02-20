@@ -1,0 +1,12 @@
+
+<!---this refence all content of first page and page will be partial for second page -->
+{%extends 'index.html' %}
+
+<!---this refence to title only -->
+{% block title %} second page {% endblock %}
+
+
+<!---this refence to conent of the page only -->
+{%block content %}
+    <h2> this is my second page </h2>
+{% endblock %}
