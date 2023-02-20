@@ -39,8 +39,8 @@ def mythirdpage(request):
         "num1": num1, 
         "num2": num2, 
         "ans": ans}
-    
-
-
     return render(request, 'third.html', my_dict)
 
+def my_image(request):
+    return render(request, 'myimage.html')
+    

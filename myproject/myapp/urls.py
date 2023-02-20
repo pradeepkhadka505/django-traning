@@ -12,5 +12,6 @@ urlpatterns = [
     path('myfirstpage', views.myfirstpage, name="myfirstpage"),
     path('mysecondpage', views.mysecondpage, name="mysecondpage"),
     path('mythirdpage', views.mythirdpage, name="mythirdpage"),
+    path('myimage', views.my_image, name="myimage")
 
 ]
