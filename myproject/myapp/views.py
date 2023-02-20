@@ -47,4 +47,25 @@ def my_image(request):
 def my_image2(request):
     return render(request, 'myimage2.html')
 
+def my_image3(request):
+    return render(request, 'myimage3.html')
+
+def my_image4(request):
+    return render(request, 'myimage4.html')
+
+def my_image5(request, imagename):
+    my_image_name = str(imagename);
+    my_image_name = my_image_name.lower();
+    print(my_image_name)
+    if my_image_name == "django":
+        var = True
+    elif my_image_name == "python":
+        var = False
+
+    my_dict = { "var" : var}
+
+    return render(request,'myimage5.html', context=my_dict)
+
+
+
 
