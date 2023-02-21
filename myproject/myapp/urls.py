@@ -19,6 +19,9 @@ urlpatterns = [
     path('myimage5/<str:imagename>', views.my_image5, name='myimage5'),
     path('myform', views.my_form, name="myform"),
     #Routing for form submmitting 
-    path('submitform', views.submit_my_form, name= "submitform")
+    path('submitform', views.submit_my_form, name= "submitform"),
+    #form2
+    path('mysecondform', views.my_second_form, name="mysecondform")
+    
     
 ]

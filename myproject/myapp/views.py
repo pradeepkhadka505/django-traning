@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from .forms import *
 # Create your views here.
 
 def onfunctioncall(request):
@@ -71,9 +72,20 @@ def my_form(request):
 #for form backend 
 def submit_my_form(request):
     my_dictionary = {
+
         "var1" :request.POST['mytext'],
         "var2" :request.POST['mytextarea'],
         "method" :request.method 
     }
-
     return JsonResponse(my_dictionary)
+
+
+def my_second_form(request):
+
+    if request.method == "POST":
+        pass
+    elif request.method == "GET":
+        form = Feedbackform()
+
+    my_dict = { "form": form }
+    return render(request, 'secondform.html', my_dict)
