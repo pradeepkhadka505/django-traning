@@ -86,18 +86,35 @@ def my_second_form(request):
         if form.is_valid():
             title = request.POST['title']
             subject = request.POST['subject']
+            email = request.POST['email']
             my_dict = {
                 "forms": Feedbackform()
                 }
 
+            errorflag = False
+            Errors = []
             if title != title.upper():
-                my_dict["error"] = True
-                my_dict["errormsg"] = "Title shuold be capital"
-                return render(request, 'secondform.html',context = my_dict)
-            else: 
+                errorflag = True
+                errormsg = "Title should be in Capital"
+                Errors.append(errormsg)
+            
+            import re
+            regex = '^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'
+            if not re.search(regex, email):
+                errorflag = True
+                errormsg = "Not a valid Email address"
+                Errors.append(errormsg)
+        
+                # my_dict["error"] = True
+                # my_dict["errormsg"] = "Title shuold be capital"
+                #return render(request, 'secondform.html',context = my_dict)
+            if errorflag != True: 
                 my_dict["success"] = True
                 my_dict["successmsg"] = "Forms submitted"
-                return render(request, 'secondform.html',context = my_dict)
+            my_dict["error"] = errorflag
+            my_dict["errors"] = Errors
+            print(my_dict)
+            return render(request, 'secondform.html',context = my_dict)
 
             # print(title)
             # print(subject)
@@ -112,4 +129,4 @@ def my_second_form(request):
     elif request.method == "GET":
         form = Feedbackform()
         my_dict = { "form": form }
-    return render(request, 'secondform.html', my_dict)
+        return render(request, 'secondform.html', my_dict)
