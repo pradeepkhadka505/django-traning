@@ -61,11 +61,11 @@ def my_image5(request, imagename):
         var = True
     elif my_image_name == "python":
         var = False
-
+        
     my_dict = { "var" : var}
-
     return render(request,'myimage5.html', context=my_dict)
 
-
+def my_form(request):
+    return render(request, 'myform.html')
 
 

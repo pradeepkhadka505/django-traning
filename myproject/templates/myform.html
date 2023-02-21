@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block title %}  my form {% endblock %}
+{% block content %} 
+    <h2 style="text-align: center; margin-top:1rem;"> my form </h2>
+    <hr/>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6" style="margin: 0 auto">
+                <form method="" action="">
+                    <div class="form-group">
+                        <label for="mytext">My text </label>
+                        <input class="form-control" type="text" id="mytext" name="mytext">
+                    </div>
+                    <div class="form-group">
+                        <label for="mytextarea">My textarea </label>
+                        <textarea class="form-control" rows="3"  id="mytextarea" name="mytextarea"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
