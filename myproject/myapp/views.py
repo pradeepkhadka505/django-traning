@@ -81,11 +81,21 @@ def submit_my_form(request):
 
 
 def my_second_form(request):
-
     if request.method == "POST":
-        pass
+        form = Feedbackform(request.POST)
+        if form.is_valid():
+            title = request.POST['title']
+            subject = request.POST['subject']
+            print(title)
+            print(subject)
+            var = str("Form Submitted " + str(request.method))
+            return HttpResponse(var)
+        else:
+            my_dict = {
+                "form": form
+            }
+            return render(request , 'secondform.html', my_dict)
     elif request.method == "GET":
         form = Feedbackform()
-
     my_dict = { "form": form }
     return render(request, 'secondform.html', my_dict)

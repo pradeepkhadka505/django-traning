@@ -1,7 +1,11 @@
 {% extends 'index.html' %}
 {% block title %} second form {% endblock %}
 {% block content %}
-    <form>
-        {{form.as_p}}
-    </form>
+    <div class="col-md-6" style="margin: 0 auto">
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{form.as_ul}}
+            <button type="submit" class="btn btn-primary" style="display: block; margin:1rem auto 0 auto"> Submit </button>
+        </form>
+    </div>
 {% endblock %}
