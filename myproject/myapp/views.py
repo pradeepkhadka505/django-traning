@@ -68,4 +68,12 @@ def my_image5(request, imagename):
 def my_form(request):
     return render(request, 'myform.html')
 
+#for form backend 
+def submit_my_form(request):
+    my_dictionary = {
+        "var1" :request.POST['mytext'],
+        "var2" :request.POST['mytextarea'],
+        "method" :request.method 
+    }
 
+    return JsonResponse(my_dictionary)

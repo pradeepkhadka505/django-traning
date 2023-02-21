@@ -6,7 +6,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6" style="margin: 0 auto">
-                <form method="" action="">
+                <form method="POST" action="{% url 'submitform' %}">
+                    {% csrf_token %}
                     <div class="form-group">
                         <label for="mytext">My text </label>
                         <input class="form-control" type="text" id="mytext" name="mytext">
@@ -14,6 +15,9 @@
                     <div class="form-group">
                         <label for="mytextarea">My textarea </label>
                         <textarea class="form-control" rows="3"  id="mytextarea" name="mytextarea"></textarea>
+                    </div>
+                    <div class="form-group">
+                       <button type="submit" class="btn btn-primary" style="margin:0 auto; display:block;"> Submit </button>
                     </div>
                 </form>
             </div>
