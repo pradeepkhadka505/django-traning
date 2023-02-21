@@ -1,10 +1,25 @@
 {% extends 'index.html' %}
 {% block title %} second form {% endblock %}
 {% block content %}
+
     <div class="col-md-6" style="margin: 0 auto">
-        <form method="POST" action="">
+        {% if success == True %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong> {{successmsg}} </strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
+        {% if error == True %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong> {{errormsg}} </strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
+
+        <form method="POST">
+            <p class="text-muted"> Note * title should be capital  </p>
             {% csrf_token %}
-            {{form.as_ul}}
+            {{form.as_p}}
             <button type="submit" class="btn btn-primary" style="display: block; margin:1rem auto 0 auto"> Submit </button>
         </form>
     </div>

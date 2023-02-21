@@ -86,16 +86,30 @@ def my_second_form(request):
         if form.is_valid():
             title = request.POST['title']
             subject = request.POST['subject']
-            print(title)
-            print(subject)
-            var = str("Form Submitted " + str(request.method))
-            return HttpResponse(var)
+            my_dict = {
+                "forms": Feedbackform()
+                }
+
+            if title != title.upper():
+                my_dict["error"] = True
+                my_dict["errormsg"] = "Title shuold be capital"
+                return render(request, 'secondform.html',context = my_dict)
+            else: 
+                my_dict["success"] = True
+                my_dict["successmsg"] = "Forms submitted"
+                return render(request, 'secondform.html',context = my_dict)
+
+            # print(title)
+            # print(subject)
+            # var = str("Form Submitted " + str(request.method))
+            # return HttpResponse(var)
         else:
             my_dict = {
                 "form": form
             }
             return render(request , 'secondform.html', my_dict)
+
     elif request.method == "GET":
         form = Feedbackform()
-    my_dict = { "form": form }
+        my_dict = { "form": form }
     return render(request, 'secondform.html', my_dict)
