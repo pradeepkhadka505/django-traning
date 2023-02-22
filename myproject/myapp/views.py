@@ -130,3 +130,7 @@ def my_second_form(request):
         form = Feedbackform()
         my_dict = { "form": form }
         return render(request, 'secondform.html', my_dict)
+
+
+def error_404_view(request):
+    return render(request, '404.html')
